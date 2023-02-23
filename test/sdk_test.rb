@@ -37,7 +37,7 @@ class Clerk::SdkTest < Minitest::Test
 
   def test_no_api_key_raises_on_api_call
     sdk = ::Clerk::SDK.new
-    assert_raises ArgumentError do
+    assert_raises Clerk::Errors::Fatal do
       sdk.users.find("x")
     end
   end
